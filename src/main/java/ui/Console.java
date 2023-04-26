@@ -31,7 +31,8 @@ public class Console implements View{
     }
 
     private void choiceToSort (){
-        System.out.println("-------MENU-------" +"\n1: Вывести дерево в алфавитном порядке" +"\n2: Вывести дерево сортировкой по дате");
+        System.out.println("-------MENU-------" +"\n1: Вывести дерево в алфавитном порядке" +
+                                                 "\n2: Вывести дерево сортировкой по дате");
         switch (scanInt("цифру: ")){
             case 1:
                 presenter.printSortByName();
@@ -91,6 +92,7 @@ public class Console implements View{
                         break;
                     case 5:
                         presenter.newTree();
+                        print("Новое дерево создано!");
                         break;
 
                     default: choiceError();
