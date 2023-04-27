@@ -11,19 +11,30 @@ import FamilyTree.Tree.Tree;
 
 public class ServiceHuman implements Service {
     private Tree<Human> tree;
+    private String family;
 
     public ServiceHuman() {
         this.tree = new Branches<>();
+        this.family = "ExampleTree";
     }
 
     public Tree<Human> getTree() {
         return tree;
     }
 
+    public String getFamily() {
+        return family;
+    }
+
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
     public void setTree(Tree<Human> tree) {this.tree = tree;}
 
-    public void newTree(){
+    public void newTree(String family){
         this.tree = new Branches<>();
+        this.family = family;
     }
 
     public void add(String name, int birthdate){
@@ -54,12 +65,13 @@ public class ServiceHuman implements Service {
 
         public void saveData() {
         Operation file = new OperationData();
-        file.saveData(getTree());
+        file.saveData(getTree(), getFamily());
     }
 
-    public void loadData() {
+    public void loadData(String family) {
+        setFamily(family);
         Operation file = new OperationData();
-        setTree((Tree<Human>) file.loadData());
+        setTree((Tree<Human>) file.loadData(getFamily()));
     }
 
     public void sortByName(){

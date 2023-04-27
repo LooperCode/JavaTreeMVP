@@ -12,9 +12,10 @@ public interface Service {
     void add(String name, int birthdate, Human father, Human mother);
     Human getByName(String name);
     void saveData();
-    void loadData();
+    void loadData(String family);
     void sortByName();
     void sortByDate();
-    void newTree();
+    void newTree(String family);
     String getString(String name);
+    void setFamily(String family);
 }

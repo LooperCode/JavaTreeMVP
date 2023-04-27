@@ -3,11 +3,12 @@ package FamilyTree.Tree;
 import java.util.Iterator;
 import java.util.List;
 
-public class BranchIterator<E> implements Iterator<E> {
+public class BranchesIterator<E> implements Iterator<E> {
     private int index;
     private List<E> familyBranches;
 
-    public BranchIterator(List<E> familyBranches) {
+    public BranchesIterator(List<E> familyBranches) {
+
         this.familyBranches = familyBranches;
     }
 
@@ -21,9 +22,5 @@ public class BranchIterator<E> implements Iterator<E> {
         return familyBranches.get(index++);
     }
 
-    @Override
-    public void remove() {
-
-    }
 
 }

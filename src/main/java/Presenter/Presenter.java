@@ -23,8 +23,8 @@ public class Presenter {
         view.print(service.toString());
     }
 
-    public void loadData() {
-        service.loadData();
+    public void loadData(String family) {
+        service.loadData(family);
     }
 
     public void saveData() {
@@ -39,7 +39,7 @@ public class Presenter {
         view.print(service.getString(name));
     }
 
-    public void newTree(){
-        service.newTree();
+    public void newTree(String family){
+        service.newTree(family);
     }
 }

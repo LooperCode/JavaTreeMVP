@@ -63,6 +63,7 @@ public class Branches <E extends Human> implements Tree<E>, Serializable {
 
     @Override
     public Iterator<E> iterator() {
-        return new BranchIterator<>(getFamilyBranches());
+        return new BranchesIterator<E>(getFamilyBranches());
+
     }
 }

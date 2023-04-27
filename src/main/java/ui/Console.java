@@ -48,7 +48,8 @@ public class Console implements View{
         System.out.println("-------MENU-------" +"\n1: Загрузить дерево" +"\n2: Сохранить дерево");
         switch (scanInt("цифру: ")){
             case 1:
-                presenter.loadData();
+
+                presenter.loadData(scan("фамилию: "));
                 print("Загрузка завершена");
                 break;
             case 2:
@@ -91,7 +92,7 @@ public class Console implements View{
                         presenter.getByName(scan("имя для поиска: "));
                         break;
                     case 5:
-                        presenter.newTree();
+                        presenter.newTree(scan("фамилию: "));
                         print("Новое дерево создано!");
                         break;
 
