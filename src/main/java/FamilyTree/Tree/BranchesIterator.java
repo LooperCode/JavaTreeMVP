@@ -3,11 +3,11 @@ package FamilyTree.Tree;
 import java.util.Iterator;
 import java.util.List;
 
-public class HumanIterator<E> implements Iterator<E> {
+public class BranchesIterator<E> implements Iterator<E> {
     private int index;
     private List<E> familyBranches;
 
-    public HumanIterator(List<E> familyBranches) {
+    public BranchesIterator(List<E> familyBranches) {
         this.familyBranches = familyBranches;
     }
 
