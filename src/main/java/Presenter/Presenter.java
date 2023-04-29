@@ -43,9 +43,6 @@ public class Presenter {
        return service.getOnce(index);
     }
 
-    public void getByName(String name) {
-        view.print(service.getString(name));
-    }
 
     public void newTree(String family) {
         service.newTree(family);

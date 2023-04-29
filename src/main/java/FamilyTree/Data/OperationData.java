@@ -25,7 +25,7 @@ public class OperationData implements Operation {
     }
 
     @Override
-    public void saveData (Object data, String famIndex){
+    public void saveData (Object data){
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
                     new FileOutputStream("src/main/java/FamilyTree/Data/DB/base.db"));

@@ -23,7 +23,7 @@ public interface Service {
 
     void newTree(String family);
 
-    String getString(String name);
+
 
     String getByFamily(String family);
 

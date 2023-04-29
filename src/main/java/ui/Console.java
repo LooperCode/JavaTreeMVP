@@ -66,6 +66,7 @@ public class Console implements View {
             switch (choice) {
                 case 1:
                     presenter.getByFamily(scan("фамилию: "));
+                    presenter.getOnce(scanInt("ID: "));
                     break;
                 case 2:
                     choiceToSort();

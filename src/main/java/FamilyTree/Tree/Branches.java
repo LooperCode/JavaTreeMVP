@@ -17,7 +17,7 @@ public class Branches<E extends Human> implements Tree<E>, Serializable {
     }
 
     public Branches() {
-        this.familyBranches = new ArrayList<E>();
+        this(new ArrayList<>());
         this.family = "ExampleTree";
     }
 

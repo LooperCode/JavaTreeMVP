@@ -15,23 +15,17 @@ public class ServiceHuman implements Service {
     private Operation operation;
 
     public ServiceHuman(DataBase data, Operation operation) {
-        this.operation = operation;
         this.tree = new Branches<>();
         this.data = data;
+        this.operation = operation;
     }
 
     public Tree<Human> getTree() {
         return tree;
     }
 
-    public void setTree(Tree<Human> tree) {
-        this.tree = tree;
-    }
-
-    public void newTree(String family) {
-        this.tree = new Branches<>();
-        tree.setFamily(family);
-        data.addData(getTree());
+    public DataBase getData() {
+        return data;
     }
 
     public String getByFamily(String family) {
@@ -39,47 +33,51 @@ public class ServiceHuman implements Service {
         return data.getByFamily(family);
     }
 
-
     public String getOnce(int index) {
         try {
             setTree(data.getOnce(index));
             return "Загрузка завершена";
         } catch (NullPointerException e) {
             return "Семейство не найдено. Убедитесь что вы ввели корректные данные!";
-
         }
     }
+
+    public Human getByName(String name) {
+
+        return tree.getByName(name);
+    }
+
+    public void setTree(Tree<Human> tree) {
+        this.tree = tree;
+    }
+
+    public void setData(Object data) {
+        this.data = (DataBase) data;
+    }
+
+    public void newTree(String family) {
+        setTree(new Branches<>());
+        tree.setFamily(family);
+        data.addData(getTree());
+    }
+
 
     public void add(String name, int birthdate, String father, String mother) {
         Human human = new Human(name, birthdate, getByName(father), getByName(mother));
         tree.add(human);
     }
 
-    public Human getByName(String name) {
-        return tree.getByName(name);
-    }
-
-
-    public String getString(String name) {
-        try {
-            Human human = tree.getByName(name);
-            return human.getString();
-        } catch (NullPointerException e) {
-            {
-                return "Не найдено";
-            }
-        }
-    }
-
 
     public void saveData() {
 
-        operation.saveData(getTree(), tree.getFamily());
+        operation.saveData(getData());
     }
 
     public void loadData() {
-
-        setTree((Tree<Human>) operation.loadData());
+        Object obj = operation.loadData();
+        if (!(obj == null)) {
+            setData(obj);
+        }
     }
 
     public void sortByName() {
@@ -99,11 +97,6 @@ public class ServiceHuman implements Service {
 
     @Override
     public String toString() {
-        try {
-            return tree.toString();
-        } catch (NullPointerException ignored) {
-            return "";
-        }
-
+        return tree.toString();
     }
 }

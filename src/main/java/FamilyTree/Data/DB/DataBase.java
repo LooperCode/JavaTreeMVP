@@ -10,11 +10,14 @@ public class DataBase implements Serializable {
     private List<Tree> data;
     private List<Tree> similar;
 
-
-    public DataBase() {
-
-        this.data = new ArrayList<>();
+    public DataBase(List<Tree> data, List<Tree> similar){
+        this.data = data;
+        this.similar = similar;
     }
+    public DataBase() {
+        this(new ArrayList<>(), new ArrayList<>());
+    }
+
 
     public Tree getOnce (int index){
         if (similar.isEmpty()){
@@ -44,7 +47,7 @@ public class DataBase implements Serializable {
                 similar.add(branches);
                 sb.append("-------").append(branches.getFamily());
                 sb.append(" ID: ").append(count++).append("-------");
-                sb.append(branches);
+                sb.append("\n").append(branches).append("\n");
             }
         }
         return sb.toString();
