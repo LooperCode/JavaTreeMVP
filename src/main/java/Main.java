@@ -1,3 +1,6 @@
+import FamilyTree.Data.DB.DataBase;
+import FamilyTree.Data.Operation;
+import FamilyTree.Data.OperationData;
 import FamilyTree.Service.Service;
 import FamilyTree.Service.ServiceHuman;
 import ui.Console;
@@ -6,7 +9,9 @@ import Presenter.Presenter;
 public class Main {
     public static void main(String[] args) {
         View view = new Console();
-        Service service = new ServiceHuman();
+        DataBase data = new DataBase();
+        Operation operation = new OperationData();
+        Service service = new ServiceHuman(data, operation);
         Presenter presenter = new Presenter(view, service);
 
         view.start();

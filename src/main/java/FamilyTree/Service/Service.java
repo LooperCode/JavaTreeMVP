@@ -1,21 +1,32 @@
 package FamilyTree.Service;
 
 
-import FamilyTree.Data.Operation;
 import FamilyTree.Person.Human;
 import FamilyTree.Tree.Tree;
 
 public interface Service {
     Tree<Human> getTree();
+
     void setTree(Tree<Human> tree);
-    void add(String name, int birthdate);
-    void add(String name, int birthdate, Human father, Human mother);
+
+    void add(String name, int birthdate, String father, String mother);
+
     Human getByName(String name);
+
     void saveData();
-    void loadData(String family);
+
+    void loadData();
+
     void sortByName();
+
     void sortByDate();
+
     void newTree(String family);
+
     String getString(String name);
-    void setFamily(String family);
+
+    String getByFamily(String family);
+
+    String getOnce(int index);
+
 }

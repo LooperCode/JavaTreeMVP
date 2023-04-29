@@ -11,7 +11,7 @@ public class Human extends Person implements Comparable<Human>, Serializable {
     private Human mother;
     private List<Human> children;
 
-    public Human (String name, int birthdate, Human father, Human mother) {
+    public Human(String name, int birthdate, Human father, Human mother) {
         this.name = name;
         this.birthdate = birthdate;
         this.father = father;
@@ -19,12 +19,12 @@ public class Human extends Person implements Comparable<Human>, Serializable {
         children = new ArrayList<>();
     }
 
-    public Human (String name, int birthdate){
-        this(name, birthdate,null, null);
+    public Human(String name, int birthdate) {
+        this(name, birthdate, null, null);
     }
 
     //Вывод детальной информации Персоны (для функции комадной строки)
-    public String getString (){
+    public String getString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Имя: ").append(name).append(", ");
         sb.append("Год рождения: ").append(birthdate).append(", ");
@@ -33,30 +33,28 @@ public class Human extends Person implements Comparable<Human>, Serializable {
         return sb.toString();
     }
 
-    public String getFatherInfo(){
+    public String getFatherInfo() {
         String result = "Отец: ";
-        if (father != null){
+        if (father != null) {
             result += father.getName();
-        }
-        else {
+        } else {
             result += "Не известно";
         }
         return result;
     }
 
-    public String getMotherInfo(){
+    public String getMotherInfo() {
         String result = "Мать: ";
-        if (mother != null){
+        if (mother != null) {
             result += mother.getName();
-        }
-        else {
+        } else {
             result += "Не известно";
         }
         return result;
     }
 
-    public boolean addChild(Human child){
-        if (!children.contains(child)){
+    public boolean addChild(Human child) {
+        if (!children.contains(child)) {
             children.add(child);
             return true;
         }

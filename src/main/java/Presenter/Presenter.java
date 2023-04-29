@@ -23,23 +23,31 @@ public class Presenter {
         view.print(service.toString());
     }
 
-    public void loadData(String family) {
-        service.loadData(family);
+    public void loadData() {
+        service.loadData();
     }
 
     public void saveData() {
         service.saveData();
     }
 
-    public void add(String name, int date, String nameFather, String nameMother){
-        service.add(name, date, service.getByName(nameFather), service.getByName(nameMother));
+    public void add(String name, int date, String nameFather, String nameMother) {
+        service.add(name, date, nameFather, nameMother);
     }
 
-    public void getByName(String name){
+    public void getByFamily(String family){
+        view.print(service.getByFamily(family));
+    }
+
+    public String getOnce (int index){
+       return service.getOnce(index);
+    }
+
+    public void getByName(String name) {
         view.print(service.getString(name));
     }
 
-    public void newTree(String family){
+    public void newTree(String family) {
         service.newTree(family);
     }
 }

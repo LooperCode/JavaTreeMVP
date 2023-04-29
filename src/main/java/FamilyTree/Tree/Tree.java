@@ -6,5 +6,7 @@ public interface Tree <E> extends Iterable<E>{
     boolean add(E person);
     List<E> getFamilyBranches();
     E getByName(String name);
+    void setFamily(String family);
+    String getFamily();
 
 }
