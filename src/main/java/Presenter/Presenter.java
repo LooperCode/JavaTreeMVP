@@ -13,38 +13,49 @@ public class Presenter {
         view.setPresenter(this);
     }
 
-    public void printSortByName() {
+    public void sortByName() {
         service.sortByName();
-        view.print(service.toString());
+
     }
 
-    public void printSortByDate() {
+    public void sortByDate() {
+
         service.sortByDate();
+    }
+
+    public void currentPrint() {
         view.print(service.toString());
     }
 
     public void loadData() {
+
         service.loadData();
     }
 
     public void saveData() {
         service.saveData();
+        view.print("Сохранено!");
     }
 
     public void add(String name, int date, String nameFather, String nameMother) {
         service.add(name, date, nameFather, nameMother);
+        view.print("Добавлено!");
     }
 
-    public void getByFamily(String family){
+    public void getByFamily(String family) {
+
         view.print(service.getByFamily(family));
+
     }
 
-    public String getOnce (int index){
-       return service.getOnce(index);
+    public void getOnce(int index) {
+
+        view.print(service.getOnce(index));
     }
 
 
     public void newTree(String family) {
-        service.newTree(family);
+        view.print(service.newTree(family));
+
     }
 }

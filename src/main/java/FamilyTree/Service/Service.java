@@ -13,7 +13,7 @@ public interface Service {
 
     Human getByName(String name);
 
-    void saveData();
+    String saveData();
 
     void loadData();
 
@@ -21,9 +21,7 @@ public interface Service {
 
     void sortByDate();
 
-    void newTree(String family);
-
-
+    String newTree(String family);
 
     String getByFamily(String family);
 

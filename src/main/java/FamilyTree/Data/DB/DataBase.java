@@ -19,15 +19,14 @@ public class DataBase implements Serializable {
     }
 
 
-    public Tree getOnce (int index){
-        if (similar.isEmpty()){
+    public Tree getOnce (int index) {
+        if (similar.isEmpty()) {
             return null;
         }
-        if (index - 1 > similar.size()){
-            return null;
+        if (index - 1 <= similar.size()) {
+            return similar.get(index - 1);
         }
-
-        return similar.get(index - 1);
+        return null;
     }
 
     private void clearSimilar(){

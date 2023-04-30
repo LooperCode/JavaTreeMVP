@@ -19,7 +19,7 @@ public class ServiceHuman implements Service {
         this.data = data;
         this.operation = operation;
     }
-
+    //Геттеры
     public Tree<Human> getTree() {
         return tree;
     }
@@ -28,12 +28,12 @@ public class ServiceHuman implements Service {
         return data;
     }
 
-    public String getByFamily(String family) {
+    public String getByFamily(String family) {  //поиск семьи по фамилии
 
         return data.getByFamily(family);
     }
 
-    public String getOnce(int index) {
+    public String getOnce(int index) {  // устанавливает выбранное дерево в текущее
         try {
             setTree(data.getOnce(index));
             return "Загрузка завершена";
@@ -42,7 +42,7 @@ public class ServiceHuman implements Service {
         }
     }
 
-    public Human getByName(String name) {
+    public Human getByName(String name) {   //возвращает Human по имени в текущем дереве
 
         return tree.getByName(name);
     }
@@ -55,10 +55,11 @@ public class ServiceHuman implements Service {
         this.data = (DataBase) data;
     }
 
-    public void newTree(String family) {
+    public String newTree(String family) {
         setTree(new Branches<>());
         tree.setFamily(family);
         data.addData(getTree());
+        return "Дерево создано!";
     }
 
 
@@ -68,9 +69,10 @@ public class ServiceHuman implements Service {
     }
 
 
-    public void saveData() {
+    public String saveData() {
 
         operation.saveData(getData());
+        return "Сохранено!";
     }
 
     public void loadData() {

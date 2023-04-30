@@ -1,0 +1,6 @@
+package ui.Commands;
+
+public interface Command {
+    void execute();
+    String getDescription();
+}

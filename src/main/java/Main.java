@@ -13,6 +13,7 @@ public class Main {
         Operation operation = new OperationData();
         Service service = new ServiceHuman(data, operation);
         Presenter presenter = new Presenter(view, service);
+        presenter.loadData();
 
         view.start();
 

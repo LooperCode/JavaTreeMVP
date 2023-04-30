@@ -1,16 +1,31 @@
 package ui;
 
 import Presenter.Presenter;
+import ui.Menu.ChoiceSortMenu;
+import ui.Menu.MainMenu;
+import ui.Menu.Menu;
 
 import java.util.Scanner;
 
 public class Console implements View {
     private Presenter presenter;
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+    private Menu menu;
+
+    public Console() {
+        scanner = new Scanner(System.in);
+        menu = new MainMenu(this);
+    }
 
     @Override
     public void setPresenter(Presenter presenter) {
+
         this.presenter = presenter;
+    }
+
+    public void setMenu(Menu menu) {
+
+        this.menu = menu;
     }
 
     private String scan(String insert) {
@@ -25,82 +40,68 @@ public class Console implements View {
         return scanner.nextInt();
     }
 
-    private void helpList() {
-        System.out.println("-------MENU-------" + "\n1: Поиск по фамилии" + "\n2: Вывести дерево" +
-                "\n3: Добавить человека в дерево" + "\n4: Сохранить дерево" + "\n5: Создать новое дерево");
-    }
-
-    private void choiceToSort() {
-        System.out.println("-------MENU-------" + "\n1: Вывести дерево в алфавитном порядке" +
-                "\n2: Вывести дерево сортировкой по дате");
-        switch (scanInt("цифру: ")) {
-            case 1:
-                presenter.printSortByName();
-                break;
-            case 2:
-                presenter.printSortByDate();
-                break;
-            default:
-                choiceError();
-        }
-    }
-
-    private void add() {
+    public void add() {
         String name = scan("имя: ");
         int date = scanInt("год рождения: ");
         String nameFather = scan("имя отца: ");
         String nameMother = scan("имя матери: ");
         presenter.add(name, date, nameFather, nameMother);
+
     }
 
-    private void choiceError() {
-        print("Некорректные данные");
+    public void getChoiceSort() {
+        setMenu(new ChoiceSortMenu(this));
+        print(menu.print());
+        menu.execute(scan("цифру: "));
+        setMenu(new MainMenu(this));
     }
 
+    public void sortByName() {
+        presenter.sortByName();
+    }
+
+    public void sortByDate() {
+        presenter.sortByDate();
+    }
+
+    public void getByFamily() {
+        presenter.getByFamily(scan("фамилию: "));
+        presenter.getOnce(scanInt("ID: "));
+    }
+
+    public void getOnce() {
+        presenter.getOnce(scanInt("цифру: "));
+    }
+
+    public void newTree() {
+        presenter.newTree(scan("фамилию: "));
+    }
+
+    public void saveData() {
+        presenter.saveData();
+    }
+
+    public void currentPrint(){
+        presenter.currentPrint();
+    }
     @Override
     public void start() {
-        presenter.loadData();
         while (true) {
-            helpList();
-            int choice = scanInt("цифру: ");
-            switch (choice) {
-                case 1:
-                    presenter.getByFamily(scan("фамилию: "));
-                    presenter.getOnce(scanInt("ID: "));
-                    break;
-                case 2:
-                    choiceToSort();
-                    break;
-                case 3:
-                    add();
-                    print("Добавлено!");
-                    break;
-                case 4:
-                    presenter.saveData();
-                    print("Сохранено!");
-                    break;
-                case 5:
-                    presenter.newTree(scan("фамилию: "));
-                    print("Новое дерево создано!");
-                    break;
-
-                default:
-                    choiceError();
-            }
+            print(menu.print());
+            menu.execute(scan("цифру: "));
         }
     }
-
-
     @Override
     public void print(String text) {
         try {
             System.out.println("-------RESULT-------");
             System.out.println(text);
-            Thread.sleep(2500);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
     }
+
 
 }
