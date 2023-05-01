@@ -51,7 +51,8 @@ public class Console implements View {
 
     public void getChoiceSort() {
         setMenu(new ChoiceSortMenu(this));
-        print(menu.print());
+        System.out.println("-----MENU-----");
+        System.out.println(menu.print());
         menu.execute(scan("цифру: "));
         setMenu(new MainMenu(this));
     }
@@ -87,7 +88,8 @@ public class Console implements View {
     @Override
     public void start() {
         while (true) {
-            print(menu.print());
+            System.out.println("-----MENU-----");
+            System.out.println(menu.print());
             menu.execute(scan("цифру: "));
         }
     }

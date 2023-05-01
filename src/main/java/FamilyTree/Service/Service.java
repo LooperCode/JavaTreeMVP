@@ -5,9 +5,9 @@ import FamilyTree.Person.Human;
 import FamilyTree.Tree.Tree;
 
 public interface Service {
-    Tree<Human> getTree();
+    Tree<Human> getCurrentTree();
 
-    void setTree(Tree<Human> tree);
+    void setCurrentTree(Tree<Human> currentTree);
 
     void add(String name, int birthdate, String father, String mother);
 
