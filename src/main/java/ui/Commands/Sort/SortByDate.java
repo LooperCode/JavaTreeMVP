@@ -2,6 +2,7 @@ package ui.Commands.Sort;
 
 import ui.Commands.Command;
 import ui.Console;
+import ui.Menu.MainMenu;
 
 public class SortByDate implements Command {
     private Console console;
@@ -17,7 +18,7 @@ public class SortByDate implements Command {
     }
 
     public void execute(){
-
         console.sortByDate();
+        console.setMenu(new MainMenu(console));
     }
 }

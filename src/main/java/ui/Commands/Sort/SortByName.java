@@ -2,6 +2,7 @@ package ui.Commands.Sort;
 
 import ui.Commands.Command;
 import ui.Console;
+import ui.Menu.MainMenu;
 
 public class SortByName implements Command {
     private Console console;
@@ -16,7 +17,7 @@ public class SortByName implements Command {
     }
 
     public void execute(){
-
         console.sortByName();
+        console.setMenu(new MainMenu(console));
     }
 }

@@ -28,40 +28,36 @@ public class Console implements View {
         this.menu = menu;
     }
 
-    private String scan(String insert) {
+    public String scan(String insert) {
         System.out.print("\n");
         System.out.println("Введите " + insert);
         return scanner.next();
     }
 
-    private int scanInt(String insert) {
+    public int scanInt(String insert) {
         System.out.print("\n");
         System.out.println("Введите " + insert);
         return scanner.nextInt();
     }
 
-    public void add() {
-        String name = scan("имя: ");
-        int date = scanInt("год рождения: ");
-        String nameFather = scan("имя отца: ");
-        String nameMother = scan("имя матери: ");
+    public void add(String name, int date, String nameFather, String nameMother) {
+
         presenter.add(name, date, nameFather, nameMother);
 
     }
 
     public void getChoiceSort() {
-        setMenu(new ChoiceSortMenu(this));
         System.out.println("-----MENU-----");
-        System.out.println(menu.print());
         menu.execute(scan("цифру: "));
-        setMenu(new MainMenu(this));
     }
 
     public void sortByName() {
+
         presenter.sortByName();
     }
 
     public void sortByDate() {
+
         presenter.sortByDate();
     }
 
@@ -70,21 +66,25 @@ public class Console implements View {
         presenter.getOnce(scanInt("ID: "));
     }
 
-    public void getOnce() {
-        presenter.getOnce(scanInt("цифру: "));
-    }
-
     public void newTree() {
+
         presenter.newTree(scan("фамилию: "));
     }
 
     public void saveData() {
+
         presenter.saveData();
     }
 
     public void currentPrint(){
+
         presenter.currentPrint();
     }
+
+    public void menuPrint(){
+        print(menu.print());
+    }
+
     @Override
     public void start() {
         while (true) {

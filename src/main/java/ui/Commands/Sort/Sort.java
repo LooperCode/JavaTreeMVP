@@ -2,6 +2,7 @@ package ui.Commands.Sort;
 
 import ui.Commands.Command;
 import ui.Console;
+import ui.Menu.ChoiceSortMenu;
 
 public class Sort implements Command {
     private Console console;
@@ -17,7 +18,8 @@ public class Sort implements Command {
     }
 
     public void execute(){
-
+        console.setMenu(new ChoiceSortMenu(console));
+        console.menuPrint();
         console.getChoiceSort();
     }
 }
