@@ -1,7 +1,7 @@
 package FamilyTree.Tree;
 
 
-import FamilyTree.Person.Human;
+import FamilyTree.Person.Persons.Human;
 
 import java.io.Serializable;
 import java.util.ArrayList;

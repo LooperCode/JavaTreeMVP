@@ -1,7 +1,7 @@
 package ui;
 
 import Presenter.Presenter;
-import ui.Menu.MainMenu;
+import ui.Menu.VarMenu.MainMenu;
 import ui.Menu.Menu;
 
 import java.util.Scanner;

@@ -2,7 +2,7 @@ import FamilyTree.Data.DB.DataBase;
 import FamilyTree.Data.Operation;
 import FamilyTree.Data.OperationData;
 import FamilyTree.Service.Service;
-import FamilyTree.Service.ServiceHuman;
+import FamilyTree.Service.Services.ServiceHuman;
 import ui.Console;
 import ui.View;
 import Presenter.Presenter;

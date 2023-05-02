@@ -2,7 +2,7 @@ package ui.Command.Commands.Sort;
 
 import ui.Command.Command;
 import ui.Console;
-import ui.Menu.ChoiceSortMenu;
+import ui.Menu.VarMenu.ChoiceSortMenu;
 
 public class Sort implements Command {
     private Console console;

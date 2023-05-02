@@ -1,27 +1,26 @@
-package ui.Menu;
+package ui.Menu.VarMenu;
 
-import ui.Command.*;
-import ui.Command.Commands.*;
-import ui.Command.Commands.Sort.Sort;
+import ui.Command.Command;
+import ui.Command.Commands.Sort.SortByDate;
+import ui.Command.Commands.Sort.SortByName;
 import ui.Console;
+import ui.Menu.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainMenu implements Menu {
+public class ChoiceSortMenu implements Menu {
     private List<Command> list;
 
-    public MainMenu(Console console) {
-        list = new ArrayList<>();
-        list.add(new GetByFamily(console));
-        list.add(new CurrentPrint(console));
-        list.add(new Sort(console));
-        list.add(new SaveData(console));
-        list.add(new Add(console));
-        list.add(new NewTree(console));
-    }
 
-    public String print(){
+    public ChoiceSortMenu(Console console) {
+        list = new ArrayList<>();
+        list.add(new SortByName(console));
+        list.add(new SortByDate(console));
+
+    }
+    @Override
+    public String print() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < list.size(); i++) {
             stringBuilder.append(i + 1);
@@ -32,8 +31,8 @@ public class MainMenu implements Menu {
         return stringBuilder.toString();
     }
 
-    public void execute(String choice){
-
+    @Override
+    public void execute(String choice) {
         list.get(Integer.parseInt(choice) - 1).execute();
     }
 }

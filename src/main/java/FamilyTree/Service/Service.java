@@ -1,7 +1,7 @@
 package FamilyTree.Service;
 
 
-import FamilyTree.Person.Human;
+import FamilyTree.Person.Persons.Human;
 import FamilyTree.Tree.Tree;
 
 public interface Service {

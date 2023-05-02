@@ -1,4 +1,6 @@
-package FamilyTree.Person;
+package FamilyTree.Person.Persons;
+
+import FamilyTree.Person.Person;
 
 import java.io.Serializable;
 import java.util.ArrayList;

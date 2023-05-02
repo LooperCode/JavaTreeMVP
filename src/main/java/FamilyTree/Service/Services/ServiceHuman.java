@@ -1,9 +1,10 @@
-package FamilyTree.Service;
+package FamilyTree.Service.Services;
 
 
 import FamilyTree.Data.DB.DataBase;
 import FamilyTree.Data.Operation;
-import FamilyTree.Person.Human;
+import FamilyTree.Person.Persons.Human;
+import FamilyTree.Service.Service;
 import FamilyTree.Tree.Branches;
 import FamilyTree.Tree.Comparators.HumanComparatorByBirthDate;
 import FamilyTree.Tree.Comparators.HumanComparatorByName;

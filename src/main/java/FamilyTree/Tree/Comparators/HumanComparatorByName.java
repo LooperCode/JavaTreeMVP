@@ -1,7 +1,7 @@
 package FamilyTree.Tree.Comparators;
 
 
-import FamilyTree.Person.Human;
+import FamilyTree.Person.Persons.Human;
 
 import java.util.Comparator;
 
