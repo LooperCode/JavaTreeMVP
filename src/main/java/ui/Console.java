@@ -1,7 +1,6 @@
 package ui;
 
 import Presenter.Presenter;
-import ui.Menu.ChoiceSortMenu;
 import ui.Menu.MainMenu;
 import ui.Menu.Menu;
 
@@ -47,7 +46,7 @@ public class Console implements View {
     }
 
     public void getChoiceSort() {
-        System.out.println("-----MENU-----");
+
         menu.execute(scan("цифру: "));
     }
 
@@ -82,28 +81,35 @@ public class Console implements View {
     }
 
     public void menuPrint(){
-        print(menu.print());
+        printFast(menu.print());
     }
 
-    @Override
-    public void start() {
-        while (true) {
-            System.out.println("-----MENU-----");
-            System.out.println(menu.print());
-            menu.execute(scan("цифру: "));
-        }
+    public void printFast(String string){
+        System.out.println(string);
     }
+
     @Override
     public void print(String text) {
         try {
             System.out.println("-------RESULT-------");
             System.out.println(text);
-            Thread.sleep(2000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void start() {
+        while (true) {
+            printFast("-----MENU-----");
+            printFast(menu.print());
+            menu.execute(scan("цифру: "));
+        }
+    }
+
 
     }
 
 
-}
+

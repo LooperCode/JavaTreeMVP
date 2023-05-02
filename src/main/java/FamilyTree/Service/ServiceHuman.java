@@ -19,12 +19,14 @@ public class ServiceHuman implements Service {
         this.data = data;
         this.operation = operation;
     }
-    //Геттеры
+    //Геттеры-----------------------------
     public Tree<Human> getCurrentTree() {
+
         return currentTree;
     }
 
     public DataBase getData() {
+
         return data;
     }
 
@@ -33,33 +35,31 @@ public class ServiceHuman implements Service {
         return data.getByFamily(family);
     }
 
-    public String getOnce(int index) {  // устанавливает выбранное дерево в текущее
-        try {
-            setCurrentTree(data.getOnce(index));
-            return "Загрузка завершена";
-        } catch (NullPointerException e) {
-            return "Семейство не найдено. Убедитесь что вы ввели корректные данные!";
-        }
-    }
-
     public Human getByName(String name) {   //возвращает Human по имени в текущем дереве
 
         return currentTree.getByName(name);
     }
 
-    public void setCurrentTree(Tree<Human> currentTree) {
+    public void getOnce(int index) {  // предоставляет выбор деревьев из списка
+
+        setCurrentTree(data.getOnce(index));
+    }
+    //сеттеры---------------------------
+    public void setCurrentTree(Tree<Human> currentTree) { // устанавливает выбранное дерево в текущее
+
         this.currentTree = currentTree;
     }
 
-    public void setData(Object data) {
+    public void setData(Object data) { //устанавливает в DataBase восстановленную сериализацию
+
         this.data = (DataBase) data;
     }
 
-    public String newTree(String family) {
+    public void newTree(String family) { //создает новое дерево
         setCurrentTree(new Branches<>());
         currentTree.setFamily(family);
         data.addData(getCurrentTree());
-        return "Дерево создано!";
+
     }
 
 
@@ -69,10 +69,10 @@ public class ServiceHuman implements Service {
     }
 
 
-    public String saveData() {
+    public void saveData() {
 
         operation.saveData(getData());
-        return "Сохранено!";
+
     }
 
     public void loadData() {

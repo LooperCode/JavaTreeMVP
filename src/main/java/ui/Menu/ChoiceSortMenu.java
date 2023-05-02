@@ -1,8 +1,8 @@
 package ui.Menu;
 
-import ui.Commands.Command;
-import ui.Commands.Sort.SortByDate;
-import ui.Commands.Sort.SortByName;
+import ui.Command.Command;
+import ui.Command.Commands.Sort.SortByDate;
+import ui.Command.Commands.Sort.SortByName;
 import ui.Console;
 
 import java.util.ArrayList;

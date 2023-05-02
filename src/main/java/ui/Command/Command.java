@@ -1,4 +1,4 @@
-package ui.Commands;
+package ui.Command;
 
 public interface Command {
     void execute();

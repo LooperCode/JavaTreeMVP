@@ -1,6 +1,6 @@
-package ui.Commands.Sort;
+package ui.Command.Commands.Sort;
 
-import ui.Commands.Command;
+import ui.Command.Command;
 import ui.Console;
 import ui.Menu.MainMenu;
 

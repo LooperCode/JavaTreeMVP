@@ -15,15 +15,16 @@ public class Presenter {
 
     public void sortByName() {
         service.sortByName();
-
+        view.print("Отсортировано по алфавиту!");
     }
 
     public void sortByDate() {
-
         service.sortByDate();
+        view.print("Отсортировано по дате!");
     }
 
     public void currentPrint() {
+
         view.print(service.toString());
     }
 
@@ -49,13 +50,13 @@ public class Presenter {
     }
 
     public void getOnce(int index) {
-
-        view.print(service.getOnce(index));
+        service.getOnce(index);
+        view.print("Семейство установленно в текущее");
     }
 
 
     public void newTree(String family) {
-        view.print(service.newTree(family));
-
+        service.newTree(family);
+        view.print("Дерево создано!");
     }
 }

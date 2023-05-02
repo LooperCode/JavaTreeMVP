@@ -1,9 +1,9 @@
-package ui.Commands;
+package ui.Command.Commands;
 
+import ui.Command.Command;
 import ui.Console;
-import ui.Menu.MainMenu;
 
-public class Add implements Command{
+public class Add implements Command {
     private Console console;
 
     public Add(Console console) {

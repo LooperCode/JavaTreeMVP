@@ -1,5 +1,6 @@
-package ui.Commands;
+package ui.Command.Commands;
 
+import ui.Command.Command;
 import ui.Console;
 
 public class SaveData implements Command {

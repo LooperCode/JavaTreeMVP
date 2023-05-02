@@ -1,6 +1,6 @@
-package ui.Commands.Sort;
+package ui.Command.Commands.Sort;
 
-import ui.Commands.Command;
+import ui.Command.Command;
 import ui.Console;
 import ui.Menu.ChoiceSortMenu;
 
@@ -19,6 +19,7 @@ public class Sort implements Command {
 
     public void execute(){
         console.setMenu(new ChoiceSortMenu(console));
+        console.printFast("-----MENU-----");
         console.menuPrint();
         console.getChoiceSort();
     }
