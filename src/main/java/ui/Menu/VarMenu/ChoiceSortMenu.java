@@ -3,6 +3,7 @@ package ui.Menu.VarMenu;
 import ui.Command.Command;
 import ui.Command.Commands.Sort.SortByDate;
 import ui.Command.Commands.Sort.SortByName;
+import ui.Command.Receiver;
 import ui.Console;
 import ui.Menu.Menu;
 
@@ -13,10 +14,10 @@ public class ChoiceSortMenu implements Menu {
     private List<Command> list;
 
 
-    public ChoiceSortMenu(Console console) {
+    public ChoiceSortMenu(Receiver receiver) {
         list = new ArrayList<>();
-        list.add(new SortByName(console));
-        list.add(new SortByDate(console));
+        list.add(new SortByName(receiver));
+        list.add(new SortByDate(receiver));
 
     }
     @Override
@@ -33,6 +34,7 @@ public class ChoiceSortMenu implements Menu {
 
     @Override
     public void execute(String choice) {
+
         list.get(Integer.parseInt(choice) - 1).execute();
     }
 }

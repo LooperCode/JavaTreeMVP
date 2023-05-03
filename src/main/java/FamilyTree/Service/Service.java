@@ -9,7 +9,7 @@ public interface Service {
 
     void setCurrentTree(Tree<Human> currentTree);
 
-    void add(String name, int birthdate, String father, String mother);
+    void add(String name, String birthdate, String father, String mother);
 
     Human getByName(String name);
 
@@ -25,6 +25,6 @@ public interface Service {
 
     String getByFamily(String family);
 
-    void getOnce(int index);
+    void getOnce(String index);
 
 }

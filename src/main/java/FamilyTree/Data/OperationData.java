@@ -19,7 +19,7 @@ public class OperationData implements Operation {
             System.out.println("-------LOAD-------" + "\nФайл не найден");
         }
         catch (ClassNotFoundException | IOException e) {
-            System.out.println("-------LOAD-------" + "Ошибка восстановления сериализации. Не найден класс!");
+            System.out.println("-------LOAD-------" + "\nОшибка восстановления сериализации. Не найден класс!");
         }
         return null;
     }

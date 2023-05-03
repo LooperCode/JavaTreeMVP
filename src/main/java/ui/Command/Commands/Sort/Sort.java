@@ -1,15 +1,14 @@
 package ui.Command.Commands.Sort;
 
 import ui.Command.Command;
-import ui.Console;
-import ui.Menu.VarMenu.ChoiceSortMenu;
+import ui.Command.Receiver;
 
 public class Sort implements Command {
-    private Console console;
+    private Receiver receiver;
 
-    public Sort (Console console) {
+    public Sort (Receiver receiver) {
 
-        this.console = console;
+        this.receiver = receiver;
     }
 
     public String getDescription(){
@@ -18,9 +17,7 @@ public class Sort implements Command {
     }
 
     public void execute(){
-        console.setMenu(new ChoiceSortMenu(console));
-        console.printFast("-----MENU-----");
-        console.menuPrint();
-        console.getChoiceSort();
+
+        receiver.getChoiceSort();
     }
 }

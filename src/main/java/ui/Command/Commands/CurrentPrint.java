@@ -1,14 +1,15 @@
 package ui.Command.Commands;
 
 import ui.Command.Command;
+import ui.Command.Receiver;
 import ui.Console;
 
 public class CurrentPrint implements Command {
-    private Console console;
+    private Receiver receiver;
 
-    public CurrentPrint(Console console) {
+    public CurrentPrint(Receiver receiver) {
 
-        this.console = console;
+        this.receiver = receiver;
     }
 
     public String getDescription(){
@@ -18,6 +19,6 @@ public class CurrentPrint implements Command {
 
     public void execute(){
 
-        console.currentPrint();
+        receiver.currentPrint();
     }
 }

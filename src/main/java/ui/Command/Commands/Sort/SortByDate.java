@@ -1,15 +1,16 @@
 package ui.Command.Commands.Sort;
 
 import ui.Command.Command;
+import ui.Command.Receiver;
 import ui.Console;
 import ui.Menu.VarMenu.MainMenu;
 
 public class SortByDate implements Command {
-    private Console console;
+    private Receiver receiver;
 
-    public SortByDate(Console console) {
+    public SortByDate(Receiver receiver) {
 
-        this.console = console;
+        this.receiver = receiver;
     }
 
     public String getDescription(){
@@ -18,7 +19,7 @@ public class SortByDate implements Command {
     }
 
     public void execute(){
-        console.sortByDate();
-        console.setMenu(new MainMenu(console));
+        receiver.sortByDate();
+
     }
 }

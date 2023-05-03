@@ -1,14 +1,16 @@
 package ui.Command.Commands.Sort;
 
 import ui.Command.Command;
+import ui.Command.Receiver;
 import ui.Console;
 import ui.Menu.VarMenu.MainMenu;
 
 public class SortByName implements Command {
-    private Console console;
+    private Receiver receiver;
 
-    public SortByName(Console console) {
-        this.console = console;
+    public SortByName(Receiver receiver) {
+
+        this.receiver = receiver;
     }
 
     public String getDescription(){
@@ -17,7 +19,7 @@ public class SortByName implements Command {
     }
 
     public void execute(){
-        console.sortByName();
-        console.setMenu(new MainMenu(console));
+
+        receiver.sortByName();
     }
 }

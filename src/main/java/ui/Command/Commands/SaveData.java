@@ -1,20 +1,24 @@
 package ui.Command.Commands;
 
 import ui.Command.Command;
+import ui.Command.Receiver;
 import ui.Console;
 
 public class SaveData implements Command {
-    private Console console;
+    private Receiver receiver;
 
-    public SaveData(Console console) {
-        this.console = console;
+    public SaveData(Receiver receiver) {
+
+        this.receiver = receiver;
     }
 
     public String getDescription(){
+
         return "Сохранить дерево";
     }
 
     public void execute(){
-        console.saveData();
+
+        receiver.saveData();
     }
 }

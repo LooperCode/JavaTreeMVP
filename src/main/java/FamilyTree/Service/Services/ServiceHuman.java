@@ -16,7 +16,7 @@ public class ServiceHuman implements Service {
     private Operation operation;
 
     public ServiceHuman(DataBase data, Operation operation) {
-        this.currentTree = new Branches<>();
+        this.currentTree = null;
         this.data = data;
         this.operation = operation;
     }
@@ -41,7 +41,7 @@ public class ServiceHuman implements Service {
         return currentTree.getByName(name);
     }
 
-    public void getOnce(int index) {  // предоставляет выбор деревьев из списка
+    public void getOnce(String index) {  // предоставляет выбор деревьев из списка
 
         setCurrentTree(data.getOnce(index));
     }
@@ -64,8 +64,8 @@ public class ServiceHuman implements Service {
     }
 
 
-    public void add(String name, int birthdate, String father, String mother) {
-        Human human = new Human(name, birthdate, getByName(father), getByName(mother));
+    public void add(String name, String birthdate, String father, String mother) {
+        Human human = new Human(name, Integer.parseInt(birthdate), getByName(father), getByName(mother));
         currentTree.add(human);
     }
 
@@ -84,18 +84,14 @@ public class ServiceHuman implements Service {
     }
 
     public void sortByName() {
-        try {
-            currentTree.getFamilyBranches().sort(new HumanComparatorByName());
-        } catch (NullPointerException ignored) {
-        }
+
+        currentTree.getFamilyBranches().sort(new HumanComparatorByName());
     }
 
     public void sortByDate() {
-        try {
-            currentTree.getFamilyBranches().sort(new HumanComparatorByBirthDate());
 
-        } catch (NullPointerException ignored) {
-        }
+        currentTree.getFamilyBranches().sort(new HumanComparatorByBirthDate());
+
     }
 
     @Override

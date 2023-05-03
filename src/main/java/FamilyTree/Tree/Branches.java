@@ -13,23 +13,27 @@ public class Branches<E extends Human> implements Tree<E>, Serializable {
     private String family;
 
     public Branches(List<E> familyBranche) {
+
         this.familyBranches = familyBranche;
     }
 
     public Branches() {
+
         this(new ArrayList<>());
-        this.family = "ExampleTree";
     }
 
     public String getFamily() {
+
         return family;
     }
 
     public void setFamily(String family) {
+
         this.family = family;
     }
 
     public List<E> getFamilyBranches() {
+
         return familyBranches;
     }
 

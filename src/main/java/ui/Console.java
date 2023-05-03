@@ -1,6 +1,7 @@
 package ui;
 
 import Presenter.Presenter;
+import ui.Command.Receiver;
 import ui.Menu.VarMenu.MainMenu;
 import ui.Menu.Menu;
 
@@ -13,7 +14,7 @@ public class Console implements View {
 
     public Console() {
         scanner = new Scanner(System.in);
-        menu = new MainMenu(this);
+        menu = new MainMenu(new Receiver(this));
     }
 
     @Override
@@ -33,13 +34,7 @@ public class Console implements View {
         return scanner.next();
     }
 
-    public int scanInt(String insert) {
-        System.out.print("\n");
-        System.out.println("Введите " + insert);
-        return scanner.nextInt();
-    }
-
-    public void add(String name, int date, String nameFather, String nameMother) {
+    public void add(String name, String date, String nameFather, String nameMother) {
 
         presenter.add(name, date, nameFather, nameMother);
 
@@ -60,9 +55,13 @@ public class Console implements View {
         presenter.sortByDate();
     }
 
-    public void getByFamily() {
-        presenter.getByFamily(scan("фамилию: "));
-        presenter.getOnce(scanInt("ID: "));
+    public String getByFamily() {
+
+       return presenter.getByFamily(scan("фамилию: "));
+    }
+
+    public void getOnce(){
+        presenter.getOnce(scan("ID: "));
     }
 
     public void newTree() {
@@ -81,10 +80,12 @@ public class Console implements View {
     }
 
     public void menuPrint(){
+
         printFast(menu.print());
     }
 
     public void printFast(String string){
+
         System.out.println(string);
     }
 

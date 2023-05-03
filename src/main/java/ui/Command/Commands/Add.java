@@ -1,14 +1,15 @@
 package ui.Command.Commands;
 
 import ui.Command.Command;
+import ui.Command.Receiver;
 import ui.Console;
 
 public class Add implements Command {
-    private Console console;
+    private Receiver receiver;
 
-    public Add(Console console) {
+    public Add(Receiver receiver) {
 
-        this.console = console;
+        this.receiver = receiver;
     }
 
     public String getDescription(){
@@ -17,11 +18,8 @@ public class Add implements Command {
     }
 
     public void execute() {
-        String name = console.scan("имя: ");
-        int date = console.scanInt("год рождения: ");
-        String nameFather = console.scan("имя отца: ");
-        String nameMother = console.scan("имя матери: ");
-        console.add(name, date, nameFather, nameMother);
+
+        receiver.add();
 
     }
 }

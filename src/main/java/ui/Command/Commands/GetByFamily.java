@@ -1,14 +1,15 @@
 package ui.Command.Commands;
 
 import ui.Command.Command;
+import ui.Command.Receiver;
 import ui.Console;
 
 public class GetByFamily implements Command {
-    private Console console;
+    private Receiver receiver;
 
-    public GetByFamily(Console console) {
+    public GetByFamily(Receiver receiver) {
 
-        this.console = console;
+        this.receiver = receiver;
     }
 
     public String getDescription(){
@@ -18,6 +19,6 @@ public class GetByFamily implements Command {
 
     public void execute(){
 
-        console.getByFamily();
+        receiver.getByFamily();
     }
 }

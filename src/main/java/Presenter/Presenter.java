@@ -38,18 +38,19 @@ public class Presenter {
         view.print("Сохранено!");
     }
 
-    public void add(String name, int date, String nameFather, String nameMother) {
+    public void add(String name, String date, String nameFather, String nameMother) {
         service.add(name, date, nameFather, nameMother);
         view.print("Добавлено!");
     }
 
-    public void getByFamily(String family) {
+    public String getByFamily(String family) {
 
-        view.print(service.getByFamily(family));
-
+        String res = service.getByFamily(family);
+        view.print(res);
+        return res;
     }
 
-    public void getOnce(int index) {
+    public void getOnce(String index) {
         service.getOnce(index);
         view.print("Семейство установленно в текущее");
     }
