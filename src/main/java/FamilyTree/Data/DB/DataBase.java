@@ -21,13 +21,8 @@ public class DataBase implements Serializable {
 
 
     public Tree getOnce(String index) {
-        if (similar.isEmpty()) {
-            return null;
-        }
-        if (Integer.parseInt(index) - 1 <= similar.size()) {
-            return similar.get(Integer.parseInt(index) - 1);
-        }
-        return null;
+
+        return similar.get(Integer.parseInt(index) - 1);
     }
 
     private void clearSimilar() {
