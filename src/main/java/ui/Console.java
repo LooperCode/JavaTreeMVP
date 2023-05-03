@@ -92,7 +92,7 @@ public class Console implements View {
     @Override
     public void print(String text) {
         try {
-            System.out.println("-------RESULT-------");
+            System.out.println("-----RESULT-----");
             System.out.println(text);
             Thread.sleep(2500);
         } catch (InterruptedException e) {
@@ -103,7 +103,7 @@ public class Console implements View {
     @Override
     public void start() {
         while (true) {
-            printFast("-----MENU-----");
+            printFast("------MENU------");
             printFast(menu.print());
             menu.execute(scan("цифру: "));
         }
