@@ -34,7 +34,10 @@ public class ChoiceSortMenu implements Menu {
 
     @Override
     public void execute(String choice) {
-
-        list.get(Integer.parseInt(choice) - 1).execute();
+        try {
+            list.get(Integer.parseInt(choice) - 1).execute();
+        } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            print();
+        }
     }
 }
